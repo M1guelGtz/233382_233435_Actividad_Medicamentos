@@ -2,6 +2,7 @@ public class Medicamento {
     protected String nombre;
     protected int clave;
     protected String caducidad;
+    protected int piezas;
 
     public Medicamento(){}
 
@@ -13,4 +14,9 @@ public class Medicamento {
 
     public String getCaducidad() {return caducidad; }
     public void setCaducidad(String caducidad) { this.caducidad = caducidad; }
+
+    public int getPiezas() { return piezas; }
+    public void setPiezas(int piezas) { this.piezas = piezas; }
+
+    
 }

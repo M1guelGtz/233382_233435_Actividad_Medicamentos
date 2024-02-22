@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
@@ -27,40 +26,53 @@ public class Principal {
         }while(resp2 == 1);
     }
     public static void añadirMedicamento(Almacen almacen){
+        String nombre;
+        int clave;
+        int piezas;
         Scanner entrada = new Scanner(System.in);
         System.out.println("1.- Via oral \n2.- Via intravenosa");
         int resp = entrada.nextInt();
         if (resp==1 ){
+            float gramaje;
             entrada.nextLine();
             ViaOral objMedic = new ViaOral();
             System.out.println("ingrese nombre del medicamento: ");
-            String nombre = entrada.nextLine();
-            System.out.println("ingrese clave para" + nombre);
-            int clave = entrada.nextInt();
+            nombre = entrada.nextLine();
+            System.out.println("ingrese clave para " + nombre);
+            clave = entrada.nextInt();
             entrada.nextLine();
             System.out.println("ingrese fecha de caducidad para " + nombre);
             String caducidad = entrada.nextLine();
             System.out.println("ingrese gramaje de la precentacion: ");
-            float gramaje = entrada.nextFloat();
+            gramaje = entrada.nextFloat();
+            System.out.println("¿cuantas piezas de "+ nombre + " desea agregar");
+            piezas = entrada.nextInt();
             objMedic.setNombre(nombre);
             objMedic.setClave(clave);
             objMedic.setCaducidad(caducidad);
             objMedic.setGramos(gramaje);
+            objMedic.setPiezas(piezas);
             almacen.addMedicamento(objMedic);
         }else{
+            entrada.nextLine();
+            String disolucion;
             Intravenosa objMedic = new Intravenosa();
             System.out.println("ingrese nombre del medicamento: ");
-            String nombre = entrada.nextLine();
+            nombre = entrada.nextLine();
             System.out.println("ingrese clave para" + nombre);
-            int clave = entrada.nextInt();
+            clave = entrada.nextInt();
+            entrada.nextLine();
             System.out.println("ingrese fecha de caducidad para " + nombre);
             String caducidad = entrada.nextLine();
             System.out.println("ingrese disolucion: ");
-            String disolucion = entrada.nextLine();
+            disolucion = entrada.nextLine();
+            System.out.println("¿cuantas piezas de "+ nombre + " desea agregar");
+            piezas = entrada.nextInt();
             objMedic.setNombre(nombre);
             objMedic.setClave(clave);
             objMedic.setCaducidad(caducidad);
             objMedic.setDisolucion(disolucion);
+            objMedic.setPiezas(piezas);
             almacen.addMedicamento(objMedic);
 
 
@@ -68,8 +80,16 @@ public class Principal {
 
     }
     public static void verListaDeMedicamentos(Almacen almacen){
-        for(int i = 0; i<almacen.getListaMedicamentos().length  ; i++){
+        for (int i = 0; i < almacen.getListaMedicamentos().size(); i++) {
+            System.out.println(almacen.getListaMedicamentos().get(i).getNombre());
+            System.out.println(almacen.getListaMedicamentos().get(i).getClave());
+            System.out.println(almacen.getListaMedicamentos().get(i).getCaducidad());
+            System.out.println(almacen.getListaMedicamentos().get(i).getCaducidad());
+            System.out.println("");
 
         }
+        /*almacen.getListaMedicamentos().forEach(() => {
+
+        });*/
     }
 }
