@@ -44,10 +44,12 @@ public class Principal {
                 System.out.println("ingrese clave para " + nombre);
                 clave = entrada.nextInt();
                 if(clave<1){
-                    System.out.println("La clave no puede ser un numero negativo.");
+                    System.out.println("La clave no puede ser un numero negativo ni cero.");
                 }
             }while(clave<1);
             entrada.nextLine();
+            System.out.println("Ingrese lote");
+            lote = entrada.nextLine();
             System.out.println("ingrese fecha de caducidad para " + nombre);
             String caducidad = entrada.nextLine();
             System.out.println("ingrese gramaje de la precentacion: ");
@@ -118,13 +120,13 @@ public class Principal {
     }
 
     public static boolean buscarExistencia(Almacen almacen, int clave){
+        boolean bandera = false;
         for (int i = 0; i < almacen.getListaMedicamentos().size(); i++){
             if(almacen.getListaMedicamentos().get(i).getClave() == clave){
-                return true;
-            }else{
-                return false;
+                bandera = true;  
             }
         }
+        return bandera;
     }
 
     public static void sumarExistencia(Almacen almacen, int add, int clave){
@@ -161,13 +163,11 @@ public class Principal {
     }
 
     public static boolean buscarLote(Almacen almacen, String lote){
+        boolean bandera=false;
         for(int i=0; i<almacen.getListaMedicamentos().size();i++){
             if(almacen.getListaMedicamentos().get(i).getLote()==lote){
-                return true;
+                bandera = true;
             }
-            else{
-                return false;
-            }
-        }
+        }return bandera;
     }
 }

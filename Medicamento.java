@@ -21,4 +21,5 @@ public class Medicamento {
 
     public String getLote(){return lote;}
     public void setLote(String lote){this.lote = lote;}
+    
 }
