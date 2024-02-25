@@ -15,8 +15,11 @@ public class Principal {
             if(resp == 1){
                 do{
                     añadirMedicamento(almacen);
+
                     System.out.println("¿desea agregar otro medicamento?\n 1.- si \nOtra tecla.- no");
+                    entrada.nextLine();
                     resp2 = entrada.nextInt();
+
                 }while(resp2 < 2 && resp2 > 0);
             }else if( resp == 2) {
                 verListaDeMedicamentos(almacen);
@@ -30,7 +33,7 @@ public class Principal {
         String nombre;
         int clave;
         int piezas;
-        String lote;
+        String lote = "";
         Scanner entrada = new Scanner(System.in);
         System.out.println("1.- Via oral \n2.- Via intravenosa");
         int resp = entrada.nextInt();
@@ -73,6 +76,7 @@ public class Principal {
             
             if (found == true) {
                 System.out.println("Ingrese lote");
+                entrada.nextLine();
                 lote=entrada.nextLine();
                 boolean loteBuscado = buscarLote(almacen, lote);
                 buscarLote(almacen, lote);
@@ -105,7 +109,7 @@ public class Principal {
                             objMedic.setPiezas(piezas);
                             almacen.addMedicamento(objMedic);
             }
-        }entrada.close();
+        }
     }
     public static void verListaDeMedicamentos(Almacen almacen){
         for (int i = 0; i < almacen.getListaMedicamentos().size(); i++) {
