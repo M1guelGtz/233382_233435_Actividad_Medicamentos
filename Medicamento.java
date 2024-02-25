@@ -3,6 +3,7 @@ public class Medicamento {
     protected int clave;
     protected String caducidad;
     protected int piezas;
+    protected String lote;
 
     public Medicamento(){}
 
@@ -18,5 +19,6 @@ public class Medicamento {
     public int getPiezas() { return piezas; }
     public void setPiezas(int piezas) { this.piezas = piezas; }
 
-    
+    public String getLote(){return lote;}
+    public void setLote(String lote){this.lote = lote;}
 }
